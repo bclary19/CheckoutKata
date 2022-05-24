@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32428.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckoutKata", "CheckoutKata.csproj", "{6176A5C0-04D3-4E2F-8E2B-1FAD5AD2820A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckoutTests", "..\CheckoutTests\CheckoutTests.csproj", "{7979B969-721C-47C9-917C-DC9B2F827675}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckoutTests", "CheckoutTests\CheckoutTests.csproj", "{7979B969-721C-47C9-917C-DC9B2F827675}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

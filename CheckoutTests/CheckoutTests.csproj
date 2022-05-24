@@ -56,7 +56,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CheckoutKata\CheckoutKata.csproj">
+    <ProjectReference Include="..\CheckoutKata.csproj">
       <Project>{6176a5c0-04d3-4e2f-8e2b-1fad5ad2820a}</Project>
       <Name>CheckoutKata</Name>
     </ProjectReference>
