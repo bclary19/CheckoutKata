@@ -11,6 +11,7 @@ namespace CheckoutKata
         string _sku;
         decimal _unitprice;
         int _itemcount = 1;
+        IDictionary<int, decimal> _quantityoffers = new Dictionary<int, decimal>();
 
         public Item(string sku, decimal unitprice)
         {
@@ -35,9 +36,24 @@ namespace CheckoutKata
             set { _itemcount = value; }
         }
 
+        public void AddQuantityOffers(int count,decimal price)
+        {
+            _quantityoffers.Add(count, price);
+        }
+
         public decimal ItemtotalCost()
         {
-            decimal totcost = Decimal.Multiply(_itemcount, _unitprice);
+            decimal totcost;
+
+            if (_quantityoffers.ContainsKey(ItemCount))
+            {
+                totcost = _quantityoffers[ItemCount];
+            }
+            else
+            {
+                totcost = Decimal.Multiply(_itemcount, _unitprice);
+            }
+
             totcost = decimal.Round(totcost, 2, MidpointRounding.AwayFromZero);
             return totcost;
         }

@@ -37,7 +37,7 @@ namespace CheckoutTests
         }
 
         [TestMethod]
-        public void TotalPrice()
+        public void TotalPriceNoSpecialOffers()
         {
             Checkout chkout = new Checkout();
             chkout.Scan(Biscuits);
@@ -46,6 +46,20 @@ namespace CheckoutTests
 
             //check the total price
             Assert.AreEqual(1.10m, chkout.calculateTotal());
+
+        }
+
+        [TestMethod]
+        public void TotalPriceSpecialOffers()
+        {
+            Biscuits.AddQuantityOffers(2, 0.45m);
+            Checkout chkout = new Checkout();
+            chkout.Scan(Biscuits);
+            chkout.Scan(Apple);
+            chkout.Scan(Biscuits);
+
+            //check the total price
+            Assert.AreEqual(.95m, chkout.calculateTotal());
 
         }
     }
