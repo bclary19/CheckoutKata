@@ -17,11 +17,23 @@ namespace CheckoutKata
             Sku = sku;
             UnitPrice = unitprice;
         }
-        public string Sku { get; set; }
+        public string Sku 
+        { 
+            get { return _sku; } 
+            set { _sku = value; }
+        }
 
-        public decimal UnitPrice { get; set; }
+        public decimal UnitPrice 
+        {
+            get { return _unitprice; }
+            set { _unitprice = value; }
+        }
 
-        public int ItemCount { get; set; }
+        public int ItemCount 
+        {
+            get { return _itemcount; }
+            set { _itemcount = value; }
+        }
 
         public decimal ItemtotalCost()
         {
