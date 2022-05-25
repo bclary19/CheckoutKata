@@ -45,7 +45,14 @@ namespace CheckoutKata
         {
             decimal totcost;
 
-            if (_quantityoffers.ContainsKey(ItemCount))
+            //check if quantity is multiple of a offers key
+            int multiplechk = CheckForMultipleOffers();
+            if (multiplechk > 0)
+            {
+                int sum = ItemCount / multiplechk;
+                totcost = Decimal.Multiply(sum, _quantityoffers[multiplechk]);
+            }
+            else if (_quantityoffers.ContainsKey(ItemCount))
             {
                 totcost = _quantityoffers[ItemCount];
             }
@@ -58,5 +65,21 @@ namespace CheckoutKata
             return totcost;
         }
 
+        //Check if the total amount of items is a multiple of any special offers
+        // return the key for the offer if it is, 0 if there isn't
+        public int CheckForMultipleOffers()
+        {
+            int retvalue = 0;
+
+            foreach(var entry in _quantityoffers)
+            {
+                if (ItemCount > entry.Key)
+                {
+                    if (ItemCount % entry.Key == 0) { retvalue = entry.Key; }
+                }
+            }
+
+            return retvalue;
+        }
     }
 }
